@@ -61,14 +61,19 @@ print(iloczynciagu(1, 4, 10))
 
 
 # zad7
-def iloczynciaguzgwiazdka(a, b, n):
-    wynik = a * (b ** (n - 1))
-    return wynik
+def iloczynciaguzgwiazdka(*r):
+    a = 1
+    b = 1
+    c = 4
+    for i in range(b, len(r)):
+        a *= c
+    return a
 
 
-print(iloczynciaguzgwiazdka(1, 4, 10))
+print(iloczynciaguzgwiazdka(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
 
-#zad8
 
-def listazakupow(lista):
+# zad8
+
+def listazakupow(**lista):
     elementy = len(lista)
