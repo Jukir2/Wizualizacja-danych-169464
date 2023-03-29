@@ -53,5 +53,8 @@ with open('dane.txt', 'r', encoding='utf8') as plik2:
     for element in w:
         if element.isupper():
             wynik += 1
-    print(wynik)
+    if wynik != 0:
+        print(wynik)
+    else:
+        print("Nie ma dużych liter!\n")
 # zad4
