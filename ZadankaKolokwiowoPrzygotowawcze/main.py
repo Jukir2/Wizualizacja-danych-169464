@@ -47,6 +47,11 @@
 # zad3
 with open('dane.txt', 'r', encoding='utf8') as plik2:
     plik2.seek(100)
-    print(plik2.read(35))
-
+    w = plik2.read(35)
+    print(w)
+    wynik = 0
+    for element in w:
+        if element.isupper():
+            wynik += 1
+    print(wynik)
 # zad4
