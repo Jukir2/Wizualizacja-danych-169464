@@ -1,0 +1,29 @@
+import numpy as np
+import pandas as pd
+
+# zad1
+xlsx = pd.ExcelFile('imiona.xlsx')
+df = pd.read_excel(xlsx, header=0)
+print(df)
+
+# zad2
+print(df[df['Liczba'] > 1000])
+print(df[df['Imie'] == 'JAKUB'])
+print(df.agg({'Liczba': ['sum']}))
+print(df[(df['Rok'] >= 2000) & (df['Rok'] <= 2005)].agg({'Liczba': ['sum']}))
+print(df.groupby(['Plec']).agg({'Liczba': ['sum']}))
+print(df.groupby(['Rok', 'Plec'])['Liczba'].agg([max]))
+print(df.groupby('Plec')['Liczba'].agg([max]))
+
+# zad3
+df1 = pd.read_csv('zamowienia.csv', header=0, sep=";", decimal=".")
+print(df1)
+df1.to_csv('plik.csv', index=False)
+print(df1["Sprzedawca"].unique())
+print(df1.nlargest(5, "Utarg"))
+print(df1.groupby("Sprzedawca")["idZamowienia"].count())
+print(df1.groupby("Kraj")["idZamowienia"].count())
+print(
+    df1[(df1['Data zamowienia'] > '2004-12-31') & (df1['Data zamowienia'] < '2006-01-01') & (df1['Kraj'] == 'Polska')][
+        'idZamowienia'].count())
+print(df1[(df1['Data zamowienia'] > '2003-12-31') & (df1['Data zamowienia'] < '2005-01-01')]["Utarg"].mean())
